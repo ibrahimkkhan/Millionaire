@@ -251,7 +251,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Color.fromRGBO(175, 163, 129, 1.0),
                         child: Text(
                           "Start",
-                          textAlign: TextAlign.center,
+                          
+                    textAlign: TextAlign.center,
                           style: GoogleFonts.cinzel(
                               fontSize: height * 0.04,
                               fontWeight: FontWeight.bold),
@@ -267,20 +268,20 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           : Column(
             children: [
-              FinalPage(Total.total)
-              // Bar(),
-              // Expanded(
-              //   child: PageView.builder(
-              //     itemBuilder: (context, index) => index < 19
-              //         ? Column(children: [
-              //               Question(question.elementAt(index),
-              //               answers.values.elementAt(index), true, controller),
-              //         ])
-              //         : FinalPage(Total.total),
-              //     controller: controller,
-              //     itemCount: 20,
-              //   ),
-              // ),
+             
+              Bar(),
+              Expanded(
+                child: PageView.builder(
+                  itemBuilder: (context, index) => index < 19
+                      ? Column(children: [
+                            Question(question.elementAt(index),
+                            answers.values.elementAt(index), true, controller),
+                      ])
+                      : FinalPage(Total.total),
+                  controller: controller,
+                  itemCount: 20,
+                ),
+              ),
              
             ],
                     
@@ -290,14 +291,13 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class Total extends ChangeNotifier{
-  static double total = 30;
+  static double total = 0;
   // double get totalAnswered => 0;
   // set totalAnswered(double value) => value;
   double totalAnswered = 0;
   
 
   void answered(){
-    print("In answered");
     totalAnswered += 0.05263;
     notifyListeners();
   }
